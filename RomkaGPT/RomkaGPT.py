@@ -15,7 +15,6 @@ user_contexts = {}
 
 def handle_message(message):
     global user_contexts
-    print('hello')
     user_id = message.from_user.id
     if user_id not in user_contexts:
         user_contexts[user_id] = ""
