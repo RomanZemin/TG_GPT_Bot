@@ -55,9 +55,11 @@ def handle_message(message):
 
 def check_for_updates():
   while True:
+    print("Looking for updates...")
     current_version = get_current_version()
     version = get_new_version()
     if current_version != version:
+      print(f'Now available new version:{version}!')
       download_update()
       restart_application()
     time.sleep(1000)
@@ -80,25 +82,30 @@ def get_new_version():
         version = str(content).replace("b\'","").replace("\\n\'","")
     else:
         version = current_version
-        print('Content was not found.')
+        print('No content')
+    print(f'New version: {version}')
     return version
 
 def download_update():
+  print("Updating...")
   version = get_new_version()
   url = 'https://github.com/RomanZemin/RomkaGPT/raw/master/RomkaGPT/dist/RomkaGPT.exe'
   r = requests.get(url, stream=True)
   if r.status_code == 200:
-    with open(f'dist/RomkaGPT_{version}.exe', 'wb') as f: #открываем exe файл дл€ записи, использу€ бинарный режим "wb"
+    print("Downloading...")
+    with open(f'RomkaGPT_{version}.exe', 'wb') as f: #открываем exe файл дл€ записи, использу€ бинарный режим "wb"
         r.raw.decode_content = True
         shutil.copyfileobj(r.raw, f) #сохран€ем содержимое ответа в файл
+  else:
+      print("Error with downloading!")
   with open('cur_version.txt', 'w') as f:
-    f.write(version)
+      f.write(version)
 
 def restart_application():
+  print("Restarting...")
   version = get_new_version()
   current_version = get_current_version()
-  time.sleep(1000)
-  os.startfile(f'dist/RomkaGPT_{version}.exe')
+  os.startfile(f'RomkaGPT_{version}.exe')
 
   os.system(f'taskkill /f /im RomkaGPT_{current_version}.exe')
   print('open')

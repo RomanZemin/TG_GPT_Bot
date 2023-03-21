@@ -127,3 +127,5 @@ Romo4ka_tg: как дела
 Bot_Answer: ?
 
 Все нормально, спасибо.
+Romo4ka_tg: как дела?
+Bot_Answer: Хорошо. А у вас?
