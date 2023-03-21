@@ -66,6 +66,7 @@ def check_for_updates():
 
 def get_current_version():
   with open('cur_version.txt', 'r') as f:
+    print('Your version: ' + f.read())
     return f.read()
     
 def get_new_version():
