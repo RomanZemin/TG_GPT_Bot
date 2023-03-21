@@ -116,3 +116,14 @@ Romo4ka_tg: привет
 
 Romo4ka_tg: привет
 Bot_Answer: ");
+
+Romo4ka_tg: привет
+Bot_Answer: Здравствуйте!
+Romo4ka_tg: как дела
+Bot_Answer: Хорошо, спасибо! У меня всё хорошо.
+Romo4ka_tg: как дела
+
+Romo4ka_tg: как дела
+Bot_Answer: ?
+
+Все нормально, спасибо.
