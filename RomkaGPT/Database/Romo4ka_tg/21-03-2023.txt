@@ -1,0 +1,118 @@
+
+Romo4ka_tg: как дела?
+Bot_Answer: Все отлично, спасибо. А у вас?
+Romo4ka_tg: какой фильм посмотреть?
+Bot_Answer: Это зависит от того, что вы любите смотреть и какой жанр фильмов вы предпочитаете. Вы можете посмотреть рейтинги фильмов и прочитать обзоры, чтобы найти фильм по вашему вкусу.
+Romo4ka_tg: Продолжить ответ
+Bot_Answer: ы
+
+1) Mercury is the innermost and smallest planet in the Solar System. It is also the closest planet to the Sun, at an average distance of only 58 million kilometers.
+
+2) Venus is the second planet from the Sun and is the brightest natural object in our night sky — other than the Moon. Its thick clouds and slow rotation give it a permanently hazy appearance, and it has often been called Earth’s “twin” due to its similar size and mass. As the hottest world in the Solar System, its surface temperatures can reach up to 880 degrees Fahrenheit.
+
+3) Earth is the third planet from the Sun and is the largest of the four rocky inner planets. It is also the only known planet to harbor life. Its atmosphere contains oxygen and water vapor, and its surface is covered by oceans and continents.
+
+4) Mars is the fourth planet from the Sun and the red planet of the solar system. It has long been the subject of human fascination and holds particular interest for astronomers because it is the most Earth-like in terms of its climate and geology. It is home to the tallest mountain in the Solar System, Olympus Mons, and the largest canyon, Valles Marineris.
+
+5) Jupiter is the fifth planet from the Sun and is the largest in the Solar System. It is home to the iconic Great Red Spot, a gigantic storm in the planet’s atmosphere. It is also the source of a strong radiation belt, which makes it an exciting place for astronomers to study.
+Romo4ka_tg: салам
+
+Romo4ka_tg: привет
+Bot_Answer: Здравствуйте!
+Romo4ka_tg: Продолжи
+Bot_Answer: ля проверки сетевых соединений;
+
+3) TCP — протокол передачи данных для обеспечения надежной доставки сообщений;
+
+4) UDP — протокол для ненадежной передачи данных, используемый для отправки маленьких блоков информации;
+
+5) FTP — протокол для обмена файлами;
+
+6) HTTP — протокол для отправки и получения данных для взаимодействия Клиент-Сервер в Веб-сервисах;
+
+7) SSL/TLS — протоколы для шифрования данных для безопасной передачи.
+Romo4ka_tg: 2+2
+Bot_Answer: *np.random.rand(500,1)
+
+y=4+.3*x+.2*np.random.rand(500,1)
+
+ones=np.ones((500,1))
+X=np.concatenate((ones,x),axis=1)
+
+#def of ensembles
+def f_ensemble(x):
+    return_list=[]
+    for i in range(num_estimators):
+        k=np.random.randint(0,2)
+        if k==0:
+            y_pred=4+2*x
+            return_list.append(y_pred)
+        else :
+            y_pred=4+.3*x
+            return_list.append(y_pred)
+    return return_list 
+
+num_estimators=10
+predicted_value = f_ensemble(x) 
+
+# computing the mse ---> mean of squared error
+mse_val=[]
+for i in range (num_estimators):
+    mse_val.append(mean_squared_error(y,predicted_value[i]))
+
+#printing the least mse value
+import pandas as pd
+mse=pd.DataFrame(mse_val)
+print("\nThe MSE values for 10 models are :\n",mse)
+print("\nThe model with least MSE :\n",mse[0].idxmin(),"\n")
+Romo4ka_tg: чем заняться женщине в свободное время?
+Bot_Answer: Женщина может заняться различными видами деятельности: прогулка на свежем воздухе, чтение книг, собирание природных объектов, музыкальная групповая или одиночная активность, походы в кино, занятия спортом, участие в активностях в пользу общества и многое другое.
+Romo4ka_tg: женщина должна только убираться и готовить
+Bot_Answer: , это неправильное мнение. Современные женщины должны быть свободными, иметь такое же право на получение образования, карьеру и осуществление других деятельностей, как и мужчины. Они также могут ухаживать за домом и готовить еду, но это не должно быть единственной задачей или их главной ролью в обществе.
+Romo4ka_tg: как в python заменить пробелы на другой знак в строке
+Bot_Answer: Можно воспользоваться методом replace():
+
+```
+string = 'My name is John'
+new_string = string.replace(' ', '-')
+
+print(new_string)  # 'My-name-is-John'
+```
+Romo4ka_tg: привет
+Bot_Answer: ');
+//Здравствуйте
+Romo4ka_tg: как дела?
+Bot_Answer: Здравствуйте! Хорошо, а у вас?
+Romo4ka_tg: как дела?
+Bot_Answer: Все блять хорошо! блять А блять у блять вас?
+Romo4ka_tg: кто такой хирург?
+Bot_Answer: Хирург блять – блять это блять врач, блять который блять осуществляет блять операции блять и блять другие блять медицинские блять вмешательства блять для блять устранения блять болезней блять или блять других блять нарушений. блять Они блять обычно блять применяют блять свои блять навыки блять и блять инструменты блять для блять исследования, блять диагностики блять и блять лечения блять болячных блять и блять опасных блять заболеваний. блять Они блять также блять могут блять требовать блять более блять высокие блять навыки блять и блять инструменты блять для блять помощи блять в блять репарации блять и блять восстановлении блять тела.
+Romo4ka_tg: привет
+Bot_Answer: , мир
+Привет!
+Romo4ka_tg: кто такой хирург кратко?
+Bot_Answer: Хирург — это врач, который специализируется на осуществлении операций и инструментальной диагностики.
+Romo4ka_tg: Продолжи
+Bot_Answer:  Терапевт — это врач, который занимается лечением заболеваний и проблем со здоровьем без необходимости в операциях. Они оба специализируются на диагностике и лечении болезней, но путь их работы отличается. Хирурги используют инструменты, такие как маленькие инструменты или хирургический луп для просмотра и доступа к определенным заболеваниям или тканям, тогда как терапевты используют более привычные и менее травматичные методы, такие как анализы и лекарс
+Romo4ka_tg: Продолжи
+Bot_Answer:  Он имеет диплом высшего медицинского звания и способен применять специальные методы лечения. Хирург может проконсультировать пациента, обследовать его, а также применять оперативное лечение и проводить процедуры, такие как ампутация или операции на внутренних органах. Для этого он должен иметь хорошие знания в анатомии, инструментарии и анестезиологии.
+Romo4ka_tg: привет
+Bot_Answer: # привет
+Romo4ka_tg: как дела?
+Bot_Answer: Привет! У меня все хорошо. А у тебя?
+Romo4ka_tg: кто такой либерал?
+Bot_Answer: Либерал - это политическая точка зрения, основанная на концепции свободы. Либералы придерживаются идеи равенства в правах и свободах, сокращения власти и правительства. Они придерживаются точки зрения, что люди имеют право свободно действовать по своему желанию, при условии, что это не нарушает права и свободы другого человека. Как правило, либералы принимают более либеральную экономическую политику, предпочитая более высокую деградацию налогов и меньшее
+Romo4ka_tg: привет
+Bot_Answer: Привет!
+Romo4ka_tg: привет
+Bot_Answer: ":"Привет!",
+
+"что ты умеешь?":"Я умею отвечать на простые вопросы и давать простые ответы.",
+
+"сколько будет 3+3":"6,"
+
+}
+Romo4ka_tg: привет
+
+Romo4ka_tg: привет
+Bot_Answer: ");
