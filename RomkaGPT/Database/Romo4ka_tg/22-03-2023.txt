@@ -3,3 +3,28 @@ Romo4ka_tg: привет
 Bot_Answer: !
 
 Здравствуйте! Как я могу Вам помочь?
+Romo4ka_tg: привет
+Bot_Answer:  §§ 1000
++Начинаем работать над игрой!
+
+Romo4ka_tg: как дела?
+Bot_Answer: Привет! Все хорошо, спасибо. А у тебя?Bot_Answer: Здравствуйте!
+Romo4ka_tg: привет
+Bot_Answer: ");
+
+let a = 'hello';
+alert(a);
+Romo4ka_tg: как дела?
+Bot_Answer: Хорошо, спасибо. А у вас?
+Romo4ka_tg: как дела?
+Bot_Answer: Все отлично, спасибо! А у тебя?
+Romo4ka_tg: как дела?
+Bot_Answer: Хорошо, спасибо. А у Вас?
+Romo4ka_tg: как дела?
+Bot_Answer: Хорошо, спасибо. А у вас?
+Romo4ka_tg: как дела?
+Bot_Answer: Всё хорошо, спасибо. А у вас?
+Romo4ka_tg: как дела?
+Bot_Answer: Хорошо, спасибо! А у вас?
+Romo4ka_tg: как дела?
+Bot_Answer: Отлично, спасибо. А у Вас?

@@ -16,6 +16,10 @@ import subprocess
 import pyautogui
 import pyuac
 
+
+#Constants
+CHECK_UPDATE_TIME = 5 #5 секунд
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 bot = telebot.TeleBot(os.getenv("TELEBOT_API_KEY"))
 user_contexts = {}
@@ -58,6 +62,8 @@ def handle_message(message):
 
 def check_for_updates():
     while True:
+        event = threading.Event()
+        event.wait(CHECK_UPDATE_TIME)
         print("Looking for updates...")
         current_version = get_current_version()
         print("Your Version: " + current_version)
@@ -66,7 +72,8 @@ def check_for_updates():
             print(f'Congratulations! Now available new version: {new_version}!')
             download_update()
             restart_application()
-        time.sleep(1000)
+        else:
+            continue
 
 def get_current_version():
     with open('cur_version.txt', 'r') as f:
@@ -86,7 +93,7 @@ def get_new_version():
         version = str(content).replace("b\'","").replace("\\n\'","")
     else:
         version = current_version
-        print('No content')
+        print('Can\'t get new version')
     print(f'Latest version: {version}')
     return version
 
@@ -140,6 +147,7 @@ if __name__ == '__main__':
     if not pyuac.isUserAdmin():
         print("Re-launching as admin!")
         pyuac.runAsAdmin()
-    timer = threading.Timer(1.0, check_for_updates)
-    timer.start()
-    bot.infinity_polling()
+    timer2 = threading.Timer(1.0, check_for_updates)
+    timer2.start()
+    timer2 = threading.Timer(1.0, bot.infinity_polling)
+    timer2.start()
