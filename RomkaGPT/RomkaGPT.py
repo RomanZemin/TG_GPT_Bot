@@ -107,8 +107,9 @@ def restart_application():
     print("Restarting...")
     version = get_new_version()
     current_version = get_current_version()
-    subprocess.run(['start', f'RomkaGPT_{version}.exe'])
+    os.system(f'start RomkaGPT_{version}.exe')
     subprocess.run(f'taskkill /f /im RomkaGPT_{current_version}.exe')
+    subprocess.run('chmod u+w cur_version.txt')
     with open('cur_version.txt', 'w') as f:
         f.write(version)
     print('open')
