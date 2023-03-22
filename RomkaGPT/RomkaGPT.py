@@ -99,16 +99,15 @@ def download_update():
             shutil.copyfileobj(r.raw, f) #сохраняем содержимое ответа в файл
     else:
         print("Error with downloading!")
-    with open('cur_version.txt', 'w') as f:
-        f.write(version)
 
 def restart_application():
     print("Restarting...")
     version = get_new_version()
     current_version = get_current_version()
     os.startfile(f'RomkaGPT_{version}.exe')
-
     os.system(f'taskkill /f /im RomkaGPT_{current_version}.exe')
+    with open('cur_version.txt', 'w') as f:
+        f.write(version)
     print('open')
 
 def send_msg(id, info):
