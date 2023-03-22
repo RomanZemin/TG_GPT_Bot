@@ -16,8 +16,8 @@ import subprocess
 import pyautogui
 import pyuac
 
-openai.api_key = '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'
-bot = telebot.TeleBot("6176959976:AAET3wYqmNPV3GSSuMHPxlECq3unFzKYBAQ")
+openai.api_key = os.getenv("OPENAI_API_KEY")
+bot = telebot.TeleBot(os.getenv("TELEBOT_API_KEY"))
 user_contexts = {}
 
 @bot.message_handler(func=lambda _: True)
