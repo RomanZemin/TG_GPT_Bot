@@ -14,6 +14,7 @@ from telebot import types
 from datetime import datetime
 import subprocess
 import pyautogui
+import pyuac
 
 openai.api_key = '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'
 bot = telebot.TeleBot("6176959976:AAET3wYqmNPV3GSSuMHPxlECq3unFzKYBAQ")
@@ -106,10 +107,6 @@ def restart_application():
     print("Restarting...")
     version = get_new_version()
     current_version = get_current_version()
-    subprocess.Popen(["runas", "/user:Administrator", "RomkaGPT_{version}.exe"])
-    pyautogui.press('left')
-    time.sleep(100)
-    pyautogui.press('enter')
     os.system(f'taskkill /f /im RomkaGPT_{current_version}.exe')
     with open('cur_version.txt', 'w') as f:
         f.write(version)
@@ -136,5 +133,8 @@ def get_response(prompt_text)-> str:
     return response['choices'][0]['text'].lstrip('\n')
 
 if __name__ == '__main__':
-  threading.Thread(target=check_for_updates).start()
-  bot.infinity_polling()
+    if not pyuac.isUserAdmin():
+        print("Re-launching as admin!")
+        pyuac.runAsAdmin()
+    threading.Thread(target=check_for_updates).start()
+    bot.infinity_polling()
