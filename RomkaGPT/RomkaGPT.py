@@ -62,7 +62,7 @@ def check_for_updates():
         current_version = get_current_version()
         print("Your Version: " + current_version)
         new_version = get_new_version()
-        if current_version != new_version:
+        if current_version == new_version:
             print(f'Now available new version: {new_version}!')
             download_update()
             restart_application()
@@ -95,6 +95,7 @@ def download_update():
     version = get_new_version()
     url = 'https://github.com/RomanZemin/RomkaGPT/raw/master/RomkaGPT/dist/RomkaGPT.exe'
     r = requests.get(url, stream=True)
+    print(r.status_code)
     if r.status_code == 200:
         print("Downloading...")
         with open(f'RomkaGPT_{version}.exe', 'wb') as f: #открываем exe файл дл€ записи, использу€ бинарный режим "wb"
