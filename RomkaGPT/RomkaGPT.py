@@ -110,11 +110,10 @@ def restart_application():
     print("Restarting...")
     version = get_new_version()
     current_version = get_current_version()
-    os.system(f'start RomkaGPT_{version}.exe')
-    subprocess.run(f'taskkill /f /im RomkaGPT_{current_version}.exe')
-    os.chmod('cur_version.txt', 0o666)
     with open('cur_version.txt', 'r+') as f:
         f.write(version)
+    os.system(f'start RomkaGPT_{version}.exe')
+    subprocess.run(f'taskkill /f /im RomkaGPT_{current_version}.exe')
     print('open')
 
 def send_msg(id, info):
