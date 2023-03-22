@@ -139,5 +139,6 @@ if __name__ == '__main__':
     if not pyuac.isUserAdmin():
         print("Re-launching as admin!")
         pyuac.runAsAdmin()
-    threading.Thread(target=check_for_updates).start()
+    timer = threading.Timer(1.0, check_for_updates)
+    timer.start()
     bot.infinity_polling()
