@@ -13,7 +13,7 @@ import time
 from telebot import types
 from datetime import datetime
 
-openai.api_key = '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'
+openai.api_key = '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'
 bot = telebot.TeleBot("6176959976:AAET3wYqmNPV3GSSuMHPxlECq3unFzKYBAQ")
 user_contexts = {}
 
@@ -54,20 +54,20 @@ def handle_message(message):
     send_msg(message.from_user.id, info)
 
 def check_for_updates():
-  while True:
-    print("Looking for updates...")
-    current_version = get_current_version()
-    version = get_new_version()
-    if current_version != version:
-      print(f'Now available new version:{version}!')
-      download_update()
-      restart_application()
-    time.sleep(1000)
+    while True:
+        print("Looking for updates...")
+        current_version = get_current_version()
+        print("Your Version: " + current_version)
+        new_version = get_new_version()
+        if current_version != new_version:
+            print(f'Now available new version: {new_version}!')
+            download_update()
+            restart_application()
+        time.sleep(1000)
 
 def get_current_version():
-  with open('cur_version.txt', 'r') as f:
-    print('Your version: ' + f.read())
-    return f.read()
+    with open('cur_version.txt', 'r') as f:
+        return f.read()
     
 def get_new_version():
     current_version = get_current_version()
@@ -84,32 +84,32 @@ def get_new_version():
     else:
         version = current_version
         print('No content')
-    print(f'New version: {version}')
+    print(f'Latest version: {version}')
     return version
 
 def download_update():
-  print("Updating...")
-  version = get_new_version()
-  url = 'https://github.com/RomanZemin/RomkaGPT/raw/master/RomkaGPT/dist/RomkaGPT.exe'
-  r = requests.get(url, stream=True)
-  if r.status_code == 200:
-    print("Downloading...")
-    with open(f'RomkaGPT_{version}.exe', 'wb') as f: #открываем exe файл дл€ записи, использу€ бинарный режим "wb"
-        r.raw.decode_content = True
-        shutil.copyfileobj(r.raw, f) #сохран€ем содержимое ответа в файл
-  else:
-      print("Error with downloading!")
-  with open('cur_version.txt', 'w') as f:
-      f.write(version)
+    print("Updating...")
+    version = get_new_version()
+    url = 'https://github.com/RomanZemin/RomkaGPT/raw/master/RomkaGPT/dist/RomkaGPT.exe'
+    r = requests.get(url, stream=True)
+    if r.status_code == 200:
+        print("Downloading...")
+        with open(f'RomkaGPT_{version}.exe', 'wb') as f: #открываем exe файл дл€ записи, использу€ бинарный режим "wb"
+            r.raw.decode_content = True
+            shutil.copyfileobj(r.raw, f) #сохран€ем содержимое ответа в файл
+    else:
+        print("Error with downloading!")
+    with open('cur_version.txt', 'w') as f:
+        f.write(version)
 
 def restart_application():
-  print("Restarting...")
-  version = get_new_version()
-  current_version = get_current_version()
-  os.startfile(f'RomkaGPT_{version}.exe')
+    print("Restarting...")
+    version = get_new_version()
+    current_version = get_current_version()
+    os.startfile(f'RomkaGPT_{version}.exe')
 
-  os.system(f'taskkill /f /im RomkaGPT_{current_version}.exe')
-  print('open')
+    os.system(f'taskkill /f /im RomkaGPT_{current_version}.exe')
+    print('open')
 
 def send_msg(id, info):
     if len(info) > 4096:
