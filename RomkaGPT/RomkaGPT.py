@@ -95,12 +95,14 @@ def download_update():
     version = get_new_version()
     url = 'https://github.com/RomanZemin/RomkaGPT/raw/master/RomkaGPT/dist/RomkaGPT.exe'
     r = requests.get(url, stream=True)
-    print(r.status_code)
     if r.status_code == 200:
         print("Downloading...")
         with open(f'RomkaGPT_{version}.exe', 'wb') as f: #открываем exe файл дл€ записи, использу€ бинарный режим "wb"
             r.raw.decode_content = True
-            shutil.copyfileobj(r.raw, f) #сохран€ем содержимое ответа в файл
+            try:
+                shutil.copyfileobj(r.raw, f) #сохран€ем содержимое ответа в файл
+            except PermissionError:
+                print("Error with downloading!")
     else:
         print("Error with downloading!")
 
