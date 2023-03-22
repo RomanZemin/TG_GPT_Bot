@@ -12,8 +12,10 @@ import shutil
 import time
 from telebot import types
 from datetime import datetime
+import subprocess
+import pyautogui
 
-openai.api_key = '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'
+openai.api_key = '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'
 bot = telebot.TeleBot("6176959976:AAET3wYqmNPV3GSSuMHPxlECq3unFzKYBAQ")
 user_contexts = {}
 
@@ -104,7 +106,10 @@ def restart_application():
     print("Restarting...")
     version = get_new_version()
     current_version = get_current_version()
-    os.startfile(f'RomkaGPT_{version}.exe')
+    subprocess.Popen(["runas", "/user:Administrator", "RomkaGPT_{version}.exe"])
+    pyautogui.press('left')
+    time.sleep(100)
+    pyautogui.press('enter')
     os.system(f'taskkill /f /im RomkaGPT_{current_version}.exe')
     with open('cur_version.txt', 'w') as f:
         f.write(version)
