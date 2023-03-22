@@ -62,7 +62,7 @@ def check_for_updates():
         current_version = get_current_version()
         print("Your Version: " + current_version)
         new_version = get_new_version()
-        if current_version == new_version:
+        if current_version != new_version:
             print(f'Now available new version: {new_version}!')
             download_update()
             restart_application()
