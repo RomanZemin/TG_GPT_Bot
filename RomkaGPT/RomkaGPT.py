@@ -18,7 +18,7 @@ import pyuac
 
 
 #Constants
-CHECK_UPDATE_TIME = 5 #5 секунд
+CHECK_UPDATE_TIME = 600 #10 минут
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 bot = telebot.TeleBot(os.getenv("TELEBOT_API_KEY"))
