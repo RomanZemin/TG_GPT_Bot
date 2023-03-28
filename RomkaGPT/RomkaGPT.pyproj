@@ -26,7 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cur_version.txt" />
-    <Content Include="version.txt" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.11" />

@@ -42,13 +42,19 @@ def handle_message(message):
     date = datetime.now().strftime("%d-%m-%Y")
     filename = f"Database/{message.from_user.username}/{date}.txt"
     with open(filename, "a") as file:
-        file.write('\n' + message.from_user.username+': '+message.text + '\n')
+        try:
+            file.write('\n' + message.from_user.username+': '+message.text + '\n')
+            pass
+        except :
+            file.write('\n' + message.from_user.username+': '+ "Some Emotions!" + '\n')
+            pass
+
 
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1=types.KeyboardButton("Продолжи")
     markup.add(item1)
 
-    if ((message.text=="Продолжи" or message.text=="Продолжить") and context != ""):
+    if ((message.text=="Продолжи" or message.text=="Продолжить" or message.text=="продолжить" or message.text=="продолжи") and context != ""):
         info = get_response(f"Продолжи общение:{context}")
     else:
         info = get_response(message.text)
@@ -82,7 +88,7 @@ def get_current_version():
 def get_new_version():
     current_version = get_current_version()
 
-    response = requests.get('https://api.github.com/repos/RomanZemin/RomkaGPT/contents/version.txt')
+    response = requests.get('https://api.github.com/repos/RomanZemin/RomkaGPT/contents/RomkaGPT/cur_version.txt')
     if response.status_code == requests.codes.ok:
         jsonResponse = response.json()  # the response is a JSON
         #the JSON is encoded in base 64, hence decode it
@@ -90,7 +96,7 @@ def get_new_version():
         #convert the byte stream to string
         jsonString = content.decode('utf-8')
         finalJson = json.loads(jsonString)  
-        version = str(content).replace("b\'","").replace("\\n\'","")
+        version = str(content).replace("b\'","").replace("\\n\'","").replace('\'',"")
     else:
         version = current_version
         print('Can\'t get new version')
@@ -144,9 +150,7 @@ def get_response(prompt_text)-> str:
     return response['choices'][0]['text'].lstrip('\n')
 
 if __name__ == '__main__':
-    if not pyuac.isUserAdmin():
-        print("Re-launching as admin!")
-        pyuac.runAsAdmin()
+
     timer2 = threading.Timer(1.0, check_for_updates)
     timer2.start()
     timer2 = threading.Timer(1.0, bot.infinity_polling)
